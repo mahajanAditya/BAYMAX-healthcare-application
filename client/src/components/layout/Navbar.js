@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+// import "./Navbar.css"
 
 class Navbar extends Component {
     render() {
@@ -15,7 +16,7 @@ class Navbar extends Component {
                             className = "col s5 brand-logo center black-text"
                             >
                             <i className="material-icons">code</i>
-                                MERN
+                                BAYMAX
                         </Link>
                     </div>
                 </nav>
