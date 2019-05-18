@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 
+console.log("in authActions.js")
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios
@@ -66,3 +67,8 @@ export const logoutUser = () => dispatch => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
 };
+
+// Open map to display nearby health centres
+export const openMap = () => dispatch => {
+  
+}

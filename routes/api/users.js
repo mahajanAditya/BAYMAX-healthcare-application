@@ -10,6 +10,7 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/user")
+console.log("in users.js")
 
 router.post("/register", (req, res) => {
   // Form validation

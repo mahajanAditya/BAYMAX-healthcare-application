@@ -13,7 +13,7 @@ app.use(
         extended: false
     })
 );
-
+console.log("in server.js")
 app.use(bodyParser.json());
 
 // DB Config

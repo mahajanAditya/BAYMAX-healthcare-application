@@ -13,8 +13,12 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import Map from "./components/map/Map";
+import PredictDisease from "./components/predictDisease/PredictDisease";
 
 import "./App.css";
+
+console.log("in App.js")
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -35,6 +39,7 @@ if (localStorage.jwtToken) {
     window.location.href = "./login";
   }
 }
+
 class App extends Component {
   render() {
     return (
@@ -47,6 +52,8 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute exact path="/map" component={Map} />
+              <PrivateRoute exact path="/predictDisease" component={PredictDisease} />
             </Switch>
           </div>
         </Router>

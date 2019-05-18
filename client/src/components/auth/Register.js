@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
+console.log("in Register.js")
+
 class Register extends Component {
   constructor() {
     super();

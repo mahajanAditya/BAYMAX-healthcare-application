@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+console.log("in Landing.js")
 
 class Landing extends Component {
   render() {
@@ -28,6 +29,7 @@ class Landing extends Component {
                 Register
               </Link>
             </div>
+            
             <div className="col s6">
               <Link
                 to="/login"
