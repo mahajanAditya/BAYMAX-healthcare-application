@@ -7,7 +7,7 @@ class PredictDisease extends Component {
     state = {
         response: {}
     }
-    componentDidMount = () => {
+    componentWillMount = () => {
         const symptoms = this.props.location.state
         // console.log(symptoms)
         let body = []
@@ -19,7 +19,7 @@ class PredictDisease extends Component {
         //     body: {"symptom": body}
         // })
         // .then(res => console.log(res))
-        console.log(body)
+        // console.log(body)
         const response = {
             "mnb": [
                 {
@@ -28,25 +28,31 @@ class PredictDisease extends Component {
                     "Self-Care": "take care"
                 },
                 {
-                    "prob": 2.333,
+                    "prob": 20.333,
                     "About": "about me",
                     "Self-Care": "take care",
                     "rest": "rest le lo baby"
                 }
             ]
         }
-        this.setState({response: response}, () => console.log(this.state))
+        this.setState({response: response})
         
     }
     render () {
-
+        console.log(this.state.response)
+        const items = Object.keys(this.state.response.mnb).map(index => 
+            Object.entries(this.state.response.mnb[index]).map(([key,value]) => 
+                <p>{key} : {value.toString()}</p>
+            )
+            // console.log(key)
+        );
+        // const items = this.state.response.mnb.map(link => <li key={link.prob}>{link.prob}</li>)
         return (
             <div>
             <h1>HI there</h1>
-            {/* {this.state.response.mnb.map((value, index) => {
-                <p></p>
-            })} */}
-            
+            {items}
+            {/* {items} */}
+            {/* {console.log(this.state.response.mnb)} */}
             <Link to="/map" className="btn-flat waves-effect">
                 Health Centers
             </Link>
