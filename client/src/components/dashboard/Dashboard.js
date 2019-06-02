@@ -37,12 +37,17 @@ class Dashboard extends Component {
       console.log(label.value)
       // fetch("http://127.0.0.1:5002/similar_symptoms", {
       // method: 'POST',
-      // body: {'symptom': label.label},
-      // }).then(res => console.log(res))
-
+      // body: JSON.stringify({'symptom': label.label}),
+      // }).then(res => res.json())
+      // .then(data => this.setState({suggested: data.similar_symptoms}, () => {
+      //     for(let i = 0; i < this.state.suggested.length; ++i) {
+      //       console.log(this.state.suggested[i].symptom)
+      //     }
+      //   }))
+      // .catch(error => console.error('MyError:', error));
       const ans = {"similar_symptoms": [
-        {val: "fever", des: "i am fever"},
-        {val: "pain", des: "i am pain"}
+        {symptom: "fever", description: "i am fever hi threree gfghff hddjdj"},
+        {symptom: "pain", description: "i am pain"}
       ]}
       this.setState({suggested: ans.similar_symptoms}, () => {
         for(let i = 0; i < this.state.suggested.length; ++i) {
@@ -52,69 +57,69 @@ class Dashboard extends Component {
     })
   }
 
-  // onPredictDisease = e => {
-  //   e.preventDefault()
-  //   fetch
-  // }
-
   render() {
     const { user } = this.props.auth;
     // const { res }
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-      <form onSubmit={this.handleSubmit}>
-        <h4>
+      <div>
+        <h4 style={{marginRight: '100px'}}>
           <b>Hey there,</b> {user.name.split(" ")[0]}
         </h4>
-        <Select
-          closeMenuOnSelect={false}
-          components={makeAnimated()}
-          // defaultValue={[colourOptions[4], colourOptions[5]]}
-          isMulti
-          options={options}
-          onChange={this.onChange}
-        />
-        <br />
-        <button
-          style={{
-            width: "150px",
-            borderRadius: "3px",
-            letterSpacing: "1.5px",
-            marginTop: "1rem"
-          }}
-          // onClick={this.onPredictDisease}
-        ><Link to={{ pathname: '/predictDisease', state: this.state.symptoms }}>Predict Disease</Link>
-        </button><br/><br />
-        <button
-          style={{
-            width: "150px",
-            borderRadius: "3px",
-            letterSpacing: "1.5px",
-            marginTop: "1rem"
-          }}
-          onClick={this.onLogoutClick}
-          className=" btn-large waves-effect waves-light hoverable blue accent-3"
-          >
-          Logout
-        </button>  
- 
+        <form onSubmit={this.handleSubmit}>
+          <button
+            style={{
+              width: "150px",
+              borderRadius: "3px",
+              letterSpacing: "1.5px",
+              marginTop: "1rem",
+              marginLeft: "7rem",
+            }}
+            onClick={this.onLogoutClick}
+            className=" btn-large waves-effect waves-light hoverable blue accent-3"
+            >
+            Logout
+          </button> 
         </form>
-        <div styles={{
-          marginTop: "100px"
+        <div style={{ marginRight: '450px',   
+                      marginLeft: '70px',
+                      marginTop: '20px',
+                     }} 
+        >
+          <Select
+            closeMenuOnSelect={false}
+            components={makeAnimated()}
+            // defaultValue={[colourOptions[4], colourOptions[5]]}
+            isMulti
+            options={options}
+            onChange={this.onChange}
+          />
+        </div>
+        <div style={{
+          marginTop: '-5%',
+          marginLeft: '1000px',
         }}>
           <h5>Suggested Symptoms</h5>
           {this.state.suggested.map((symptom, index) => (
-              <ControlledTooltips name={symptom.val} des={symptom.des}/>
+              <ControlledTooltips name={symptom.symptom} des={symptom.description}/>
           ))}  
-          
+        </div>  
+        <br style={{lineHeight:'15'}} />
+        <button
+          style={{
+            borderRadius: "3px",
+            letterSpacing: "1.5px",
+            marginLeft: '27%'
+          }}
+          className=" btn-large waves-effect waves-light hoverable blue accent-3"
+          // onClick={this.onPredictDisease}
+        ><Link to={{ pathname: '/predictDisease', state: this.state.symptoms }} 
+                // style={{color:'white'}}
+          >Predict Disease
+          </Link>
+        </button>
         </div>
-        </div> 
     );
   }
-  // openMap() {
-  //   let path = `/map`
-  //   fetch(path).then(console.log("hi"))
-  // };
 
   // render() {
   //   const { user } = this.props.auth;
