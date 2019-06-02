@@ -32,7 +32,7 @@ class ControlledTooltips extends React.Component {
 
   render() {
     return (
-      <div style={{marginLeft: '80px', fontSize: '1em'}}>
+      <div style={{marginLeft: '70px', fontSize: '1em'}}>
       <MuiThemeProvider theme={theme}>
       <Tooltip
         onClose={this.handleTooltipClose}

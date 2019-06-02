@@ -32,7 +32,7 @@ const MyMapComponent = compose(
                 };
                 service.nearbySearch(request, (results, status) => {
                     if (status === google.maps.places.PlacesServiceStatus.OK) {
-                        console.log(results);
+                        // console.log(results);
                         updatePlaces(results);
                     }
                 })
@@ -47,7 +47,7 @@ const MyMapComponent = compose(
             onBoundsChanged={props.fetchPlaces}
             defaultZoom={8}
             defaultCenter={{ lat: props.currentLocation.lat, lng: props.currentLocation.lng }}
-        >{console.log(props)}
+        >
             {props.places && props.places.map((place, i) =>
                 <Marker title={place.name} key={i} position={{ lat: place.geometry.location.lat(), lng: place.geometry.location.lng() }} />
             )}
