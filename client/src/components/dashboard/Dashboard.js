@@ -59,7 +59,6 @@ class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
-    // const { res }
     return (
       <div>
         <h4 style={{marginRight: '100px'}}>
@@ -120,44 +119,6 @@ class Dashboard extends Component {
         </div>
     );
   }
-
-  // render() {
-  //   const { user } = this.props.auth;
-
-  //   return (
-  //     <div style={{ height: "75vh" }} className="container valign-wrapper">
-  //       <div className="row">
-  //         <div className="landing-copy col s12 center-align">
-  //           <h4>
-  //             <b>Hey there,</b> {user.name.split(" ")[0]}
-  //             <p className="flow-text grey-text text-darken-1">
-  //               You have entered the world of BAYMAX{" "}
-  //                👏
-  //             </p>
-  //           </h4>
-  //           <button
-  //             style={{
-  //               width: "150px",
-  //               borderRadius: "3px",
-  //               letterSpacing: "1.5px",
-  //               marginTop: "1rem"
-  //             }}
-  //             onClick={this.onLogoutClick}
-  //             className=" btn-large waves-effect waves-light hoverable blue accent-3"
-  //           >
-  //             Logout
-  //           </button>
-  //           <br /><br />
-  //           <Link to="/map" className="btn-flat waves-effect">
-  //             Health Centers
-  //           </Link>
-              
-  //         </div>
-  //       </div>
-  //     </div>
-  //     // <Route path="/" exact component={Index} />
-  //   );
-  // }
 }
 
 Dashboard.propTypes = {

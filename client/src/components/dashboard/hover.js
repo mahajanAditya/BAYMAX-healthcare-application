@@ -12,18 +12,16 @@ const theme = createMuiTheme({
     MuiTooltip: {
       tooltip: {
         fontSize: "1em",
-        
       }
     }
   }
 });
+
 class ControlledTooltips extends React.Component {
   state = {
     open: false
   };
-
-
-
+  
   handleTooltipClose = () => {
     this.setState({ open: false });
   };
